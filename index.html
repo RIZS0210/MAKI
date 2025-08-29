@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki - Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header con logo y fondo circular -->
+    <header>
+        <div id="logo-container">
+            <img src="images/animation1.png" alt="Maki" id="logo">
+        </div>
+        <h1>Maki</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Progreso del usuario -->
+        <section id="user-progress">
+            <h2>Tu Progreso</h2>
+            <p>Nivel actual: <span id="level">1</span></p>
+            <p>Puntos acumulados: <span id="points">0</span></p>
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+        </section>
+
+        <!-- Navegación -->
+        <section id="navigation">
+            <h2>Elige una opción</h2>
+            <!-- Botón que abre lesson.html en la misma ventana -->     
+                <button class="nav-btn" onclick="window.location.href='lesson.html'">
+                    📚 Comenzar 
+                </button>
+            
+            <button class="nav-btn" onclick="viewAchievements()">🏆 Ver Logros</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Maki App</p>
+    </footer>
+
+    <script src="lesson.js"></script>
+</body>
+</html>

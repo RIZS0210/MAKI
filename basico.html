@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki - Básico</title>
+    <link rel="stylesheet" href="lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div id="logo-container">
+            <img src="images/animation1.png" alt="Maki" id="logo">
+        </div>
+        <h1>Básico</h1>
+    </header>
+
+    <!-- Botón retroceder -->
+    <button id="back-btn" class="nav-btn" onclick="window.history.back()">⬅️</button>
+
+    <!-- Contenido principal -->
+    <main>
+        <section>
+            <h2>Lección 1 - Básico</h2>
+            <p>Aprende los signos básicos del lenguaje de señas.</p>
+            <img src="images/lesson_basico1.png" alt="Seña ejemplo" style="width:60%; margin:2dvh 0;">
+            <p>Practica los gestos y avanza al siguiente nivel.</p>
+
+            <button class="nav-btn" onclick="window.location.href='basico.html'">Siguiente nivel</button>
+        </section>
+    </main>
+
+    <!-- Barra inferior -->
+    <nav id="bottom-bar">
+        <button id="home-btn" class="nav-btn" onclick="window.location.href='index.html'">
+            <img src="images/casita.png" alt="Inicio">
+        </button>
+    </nav>
+
+    <footer>
+        <p>&copy; 2025 Maki App</p>
+    </footer>
+</body>
+</html>

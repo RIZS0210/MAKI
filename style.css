@@ -1,0 +1,162 @@
+/* Reset y box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tipografía y fondo */
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    width: 100dvw;
+    height: 100dvh;
+    background: linear-gradient(135deg, #a6f0ff, #fff9b0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ajusta espacio entre header, main y footer */
+    align-items: center;
+    overflow: hidden; /* Evita scroll */
+    padding: 2dvh 0;
+}
+
+/* Header centrado con logo */
+header {
+    background: linear-gradient(135deg, #ff7eb9, #ff758c);
+    color: white;
+    width: 90%;
+    padding: 2dvh 0;
+    border-radius: 2dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1dvh;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Contenedor del logo con fondo circular */
+#logo-container {
+    width: 18dvw;
+    height: 18dvw;
+    background: linear-gradient(135deg, #fff4d6, #ffd1dc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Logo */
+#logo {
+    width: 60%;
+    height: auto;
+}
+
+/* Título */
+h1 {
+    font-size: 6vw;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Main centrado verticalmente */
+main {
+    width: 90%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Distribuye contenido */
+    align-items: center;
+}
+
+/* Secciones compactas */
+section {
+    padding: 2dvh 3dvw;
+    width: 90%;
+    max-width: 400px;
+    background: #ffffffcc;
+    border-radius: 2dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
+/* Títulos de secciones */
+h2 {
+    font-size: 5vw;
+    color: #ff4d6d;
+    margin-bottom: 1.5dvh;
+    text-align: center;
+}
+
+/* Botones grandes */
+button.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5dvw;
+    padding: 2dvh 4dvw;
+    margin: 1dvh 0;
+    font-size: 4vw;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, #f5d547, #ff7e5f);
+    color: white;
+    border-radius: 2dvh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 300px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button.nav-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff7e5f, #f5d547);
+}
+
+/* Barra de progreso compacta */
+#progress-bar-container {
+    width: 100%;
+    background-color: #ffe082;
+    border-radius: 2dvh;
+    overflow: hidden;
+    margin-top: 1.5dvh;
+}
+
+#progress-bar {
+    width: 50%;
+    height: 3dvh;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    border-radius: 2dvh;
+    transition: width 1s ease-in-out;
+}
+
+/* Footer pequeño y centrado */
+footer {
+    font-size: 3vw;
+    color: #555;
+    text-align: center;
+    padding: 1dvh 0;
+}
+
+/* Imagen de lección centrada */
+img.lesson-img {
+    width: 60%;
+    margin: 2dvh 0;
+    border-radius: 1dvh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive para móviles */
+@media screen and (max-width: 400px) {
+    h1 { font-size: 7vw; }
+    h2 { font-size: 6vw; }
+    button.nav-btn { font-size: 5vw; padding: 2.5dvh 5dvw; }
+}

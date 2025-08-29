@@ -1,0 +1,222 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Nunito', sans-serif;
+    width: 100dvw;
+    height: 100dvh;
+    background: linear-gradient(135deg, #a6f0ff, #fff9b0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #ff7eb9, #ff758c);
+    color: white;
+    width: 90%;
+    padding: 2dvh 0;
+    border-radius: 2dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1dvh;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#logo-container {
+    width: 18dvw;
+    height: 18dvw;
+    background: linear-gradient(135deg, #fff4d6, #ffd1dc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#logo { 
+    width: 60%; 
+}
+
+/* Main */
+main { 
+    margin-top: 10dvh; 
+    margin-bottom: 10dvh; /* espacio para barra inferior */
+    flex: 1;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+}
+
+/* Secciones */
+section { 
+    width: 90%; 
+    max-width: 500px; 
+    background: #ffffffcc; 
+    border-radius: 2dvh; 
+    padding: 2dvh 3dvw; 
+    margin-top: 2dvh; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 2dvh; 
+}
+
+h2 { 
+    font-size: 5vw; 
+    color: #ff4d6d; 
+    text-align:center; 
+}
+
+/* Dificultad */
+#difficulty-selection {
+    display: flex;
+    justify-content: center;
+    gap: 4dvw;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 2dvh 4dvw;
+    font-size: 4vw;
+    border: none;
+    border-radius: 2dvh;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ffdd57, #ff7e5f);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.difficulty-btn:hover { 
+    transform: scale(1.05); 
+    background: linear-gradient(135deg, #ff7e5f, #ffdd57); 
+}
+
+/* Camino de niveles */
+#levels-path {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3dvw;
+    margin-top: 2dvh;
+}
+
+.level {
+    width: 12dvw;
+    height: 12dvw;
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 4vw;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.level.unlocked { 
+    background: linear-gradient(135deg, #4CAF50, #81C784); 
+}
+.level.unlocked:hover { 
+    transform: scale(1.2); 
+}
+.level.locked { 
+    background: #ccc; 
+    cursor: not-allowed; 
+    opacity: 0.6; 
+}
+
+/* Botones generales */
+button.nav-btn, .difficulty-btn, .level {
+    padding: 2dvh 4dvw;
+    font-size: 4vw;
+    border-radius: 2dvh;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.3s;
+}
+
+button.nav-btn {
+    background: linear-gradient(135deg, #f5d547, #ff7e5f);
+    color: white;
+    width: 70%;
+    max-width: 250px;
+}
+
+button.nav-btn:hover, .difficulty-btn:hover, .level:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff7e5f, #f5d547);
+}
+
+/* Botón regresar superior izquierda */
+#back-btn {
+    position: absolute;
+    top: 1.5dvh;
+    left: 1.5dvw;
+    width: 10dvw;
+    min-width: 40px;
+    height: 10dvw;
+    min-height: 40px;
+    font-size: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff7e5f, #f5d547);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.3s;
+    z-index: 10;
+}
+
+#back-btn:hover {
+    transform: scale(1.2) rotate(-10deg);
+    background: linear-gradient(135deg, #f5d547, #ff7e5f);
+}
+
+/* Barra inferior */
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8dvh;
+    background: linear-gradient(135deg, #ff7eb9, #ff758c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    z-index: 20;
+}
+
+#bottom-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#bottom-bar img {
+    width: 8dvw;
+    max-width: 50px;
+    height: auto;
+    background: none; /* asegura transparencia */
+}
