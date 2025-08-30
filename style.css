@@ -11,131 +11,98 @@ body {
     color: #333;
     width: 100dvw;
     height: 100dvh;
-    background: linear-gradient(135deg, #a6f0ff, #fff9b0);
+    background: linear-gradient(135deg, #e3a6ff, #fff9b0);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ajusta espacio entre header, main y footer */
+    justify-content: center; 
     align-items: center;
-    overflow: hidden; /* Evita scroll */
-    padding: 2dvh 0;
+    overflow: hidden; 
+    padding: 20dvh 0;
 }
 
-/* Header centrado con logo */
+
 header {
-    background: linear-gradient(135deg, #ff7eb9, #ff758c);
-    color: white;
-    width: 90%;
-    padding: 2dvh 0;
-    border-radius: 2dvh;
+    background: linear-gradient(135deg, #ff7eb9, #ff758c); 
+    color: white; 
+    width: 90%;                 /* ancho proporcional */
+    padding: 3dvh 0;            /* espacio arriba y abajo */
+    border-radius: 2dvh;        /* bordes redondeados */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1dvh;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    gap: 1.5dvh;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.2); /* sombra elegante */
 }
 
 /* Contenedor del logo con fondo circular */
 #logo-container {
-    width: 18dvw;
-    height: 18dvw;
+    width: 40dvh;   /* centrado y grande */
+    height: 40dvh;
     background: linear-gradient(135deg, #fff4d6, #ffd1dc);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 /* Logo */
 #logo {
-    width: 60%;
+    width: 80%;
     height: auto;
 }
 
 /* Título */
 h1 {
-    font-size: 6vw;
-    font-weight: 800;
+    font-family: 'Lemon Friday', cursive;
+    font-size: 15vw !important;
+    font-weight: 900;
     text-align: center;
+    margin-top: 2vw;
+    color: rgb(255, 255, 255);
 }
 
-/* Main centrado verticalmente */
+/* Main centrado */
 main {
     width: 90%;
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; /* Distribuye contenido */
-    align-items: center;
-}
-
-/* Secciones compactas */
-section {
-    padding: 2dvh 3dvw;
-    width: 90%;
-    max-width: 400px;
-    background: #ffffffcc;
-    border-radius: 2dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-3px);
-}
-
-/* Títulos de secciones */
-h2 {
-    font-size: 5vw;
-    color: #ff4d6d;
-    margin-bottom: 1.5dvh;
-    text-align: center;
-}
-
-/* Botones grandes */
-button.nav-btn {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5dvw;
-    padding: 2dvh 4dvw;
-    margin: 1dvh 0;
+    align-items: center;
+    gap: 3dvh;
+    margin-top: 5dvh; /* más espacio bajo el logo */
+}
+
+/* Botón minimalista */
+button.nav-btn {
+    padding: 1.5dvh 3dvw;
     font-size: 4vw;
     cursor: pointer;
-    border: none;
-    background: linear-gradient(135deg, #f5d547, #ff7e5f);
-    color: white;
-    border-radius: 2dvh;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    width: 80%;
-    max-width: 300px;
-    transition: transform 0.2s, background 0.3s;
+    border: 2px solid #ff4d6d;
+    background: transparent;
+    color: #ff4d6d;
+    border-radius: 50px;
+    min-width: 160px;
+    text-align: center;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite; /* 👈 animación flotante */
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+button.nav-btn {
+    animation: pulse 1.5s infinite;
 }
 
 button.nav-btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #ff7e5f, #f5d547);
-}
-
-/* Barra de progreso compacta */
-#progress-bar-container {
-    width: 100%;
-    background-color: #ffe082;
-    border-radius: 2dvh;
-    overflow: hidden;
-    margin-top: 1.5dvh;
-}
-
-#progress-bar {
-    width: 50%;
-    height: 3dvh;
-    background: linear-gradient(135deg, #ff4d6d, #ff758c);
-    border-radius: 2dvh;
-    transition: width 1s ease-in-out;
+    background: #ff4d6d;
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Footer pequeño y centrado */
@@ -144,19 +111,49 @@ footer {
     color: #555;
     text-align: center;
     padding: 1dvh 0;
-}
-
-/* Imagen de lección centrada */
-img.lesson-img {
-    width: 60%;
-    margin: 2dvh 0;
-    border-radius: 1dvh;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 4dvh;
 }
 
 /* Responsive para móviles */
 @media screen and (max-width: 400px) {
     h1 { font-size: 7vw; }
-    h2 { font-size: 6vw; }
-    button.nav-btn { font-size: 5vw; padding: 2.5dvh 5dvw; }
+    button.nav-btn { font-size: 5vw; padding: 1.5dvh 5dvw; }
+
+    #logo-container {
+        width: 30dvh;
+        height: 30dvh;
+    }
+}
+
+#navigation {
+    margin-top: 5dvh; 
+}
+
+/* Asegura que el contenido quede encima de las burbujas */
+header, #navigation, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fondo de burbujas */
+.bubbles {
+    position: fixed;
+    inset: 0;           /* top/right/bottom/left: 0 */
+    overflow: hidden;
+    pointer-events: none; /* no bloquea clics del UI */
+    z-index: 0;           /* detrás del contenido */
+}
+
+/* Aspecto de cada burbuja */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.5) 60%,
+        rgba(255,255,255,0.15) 100%);
+    box-shadow: 0 0 15px rgba(255,255,255,0.35);
+    will-change: transform, opacity;
+    opacity: 0.9;
+    pointer-events: auto; /* para poder hacer click y reventarlas */
 }

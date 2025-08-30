@@ -8,22 +8,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Fondo de burbujas -->
+    <div class="bubbles"></div>
+
+    <!-- Barra superior (opcional) -->
+    <div id="top-bar"></div>
+
     <!-- Header -->
     <header>
         <div id="logo-container">
             <img src="images/animation1.png" alt="Maki" id="logo">
         </div>
-        <h1>Maki - Lecciones</h1>
+        <h1>Maki</h1>
     </header>
 
     <!-- Botón retroceder paso -->
-    <button id="back-btn" class="nav-btn">⬅️</button>
+    <button id="back-btn">
+        <img src="images/flecha2.png" alt="Regresar">
+    </button>
 
     <!-- Contenido principal -->
     <main>
         <!-- Sección de dificultad -->
         <section id="difficulty-section">
-            <h2>Selecciona tu dificultad</h2>
+            <h2>Selecciona la dificultad</h2>
             <div id="difficulty-selection">
                 <button class="difficulty-btn" data-diff="Básico">Básico</button>
                 <button class="difficulty-btn" data-diff="Intermedio">Intermedio</button>
@@ -52,6 +60,83 @@
         <p>&copy; 2025 Maki App</p>
     </footer>
 
+    <!-- Script de burbujas -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.bubbles');
+      if (!container) return;
+
+      const BUBBLES = 24;
+      const MIN_SIZE = 12, MAX_SIZE = 48;
+      const MIN_SPEED = 0.25, MAX_SPEED = 0.5;
+
+      const bubbles = [];
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+
+      function spawn(b) {
+        b.size = rand(MIN_SIZE, MAX_SIZE);
+        b.x = rand(0, window.innerWidth - b.size);
+        b.y = rand(0, window.innerHeight - b.size);
+        const angle = rand(0, Math.PI * 2);
+        const speed = rand(MIN_SPEED, MAX_SPEED);
+        b.vx = Math.cos(angle) * speed;
+        b.vy = Math.sin(angle) * speed;
+        b.el.style.width  = b.size + 'px';
+        b.el.style.height = b.size + 'px';
+        b.el.style.opacity = 0.9;
+        b.el.style.transform = `translate(${b.x}px, ${b.y}px) scale(1)`;
+        b.popAt = performance.now() + rand(4000, 10000);
+        b.popping = false;
+      }
+
+      function createBubble() {
+        const el = document.createElement('div');
+        el.className = 'bubble';
+        container.appendChild(el);
+        const b = { el, x:0, y:0, vx:0, vy:0, size:0, popAt:0, popping:false };
+        spawn(b);
+        el.addEventListener('pointerdown', () => pop(b));
+        bubbles.push(b);
+      }
+
+      function pop(b) {
+        if (b.popping) return;
+        b.popping = true;
+        b.el.style.transition = 'transform 180ms ease, opacity 180ms ease';
+        b.el.style.transform  = `translate(${b.x}px, ${b.y}px) scale(1.7)`;
+        b.el.style.opacity    = '0';
+        setTimeout(() => {
+          b.el.style.transition = '';
+          spawn(b);
+        }, 200);
+      }
+
+      for (let i = 0; i < BUBBLES; i++) createBubble();
+
+      function tick(now) {
+        const W = window.innerWidth, H = window.innerHeight;
+        for (const b of bubbles) {
+          b.x += b.vx;
+          b.y += b.vy;
+
+          if (b.x <= 0 || b.x + b.size >= W) { b.vx *= -1; b.x = Math.min(Math.max(b.x, 0), W - b.size); }
+          if (b.y <= 0 || b.y + b.size >= H) { b.vy *= -1; b.y = Math.min(Math.max(b.y, 0), H - b.size); }
+
+          if (!b.popping && now > b.popAt) {
+            pop(b);
+            b.popAt = now + rand(4000, 10000);
+          }
+
+          b.el.style.transform = `translate(${b.x}px, ${b.y}px) scale(1)`;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+    </script>
+
+    <!-- Script principal -->
     <script src="lesson.js"></script>
 </body>
 </html>
